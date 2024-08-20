@@ -16,8 +16,8 @@ public class OrderPage {
     public OrderPage(WebDriver driver){
         this.driver = driver;
     }
-    public static final By topOrderButton = By.xpath("//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
-    public static final By bottomOrderButton = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    private static final By topOrderButton = By.xpath("//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
+    private static final By bottomOrderButton = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     By firstNameInput = By.xpath("//input[@placeholder='* Имя']");
     By lastNameInput = By.xpath("//input[@placeholder='* Фамилия']");
@@ -39,8 +39,18 @@ public class OrderPage {
     By orderInfo = By.className("Order_Text__2broi");
 
 
-    public OrderPage clickOrderButton(By orderButton) {
-        driver.findElement(orderButton).click();
+    public OrderPage clickOrderButton(String orderButton) {
+        switch (orderButton){
+            case "top":
+                driver.findElement(topOrderButton).click();
+                break;
+            case "bottom":
+                driver.findElement(bottomOrderButton).click();
+                break;
+            default:
+                driver.findElement(topOrderButton).click();
+                break;
+        }
         return this;
     }
 

@@ -11,7 +11,7 @@ import praktikum.page.objects.OrderPage;
 
 @RunWith(Parameterized.class)
 public class OrderTest {
-    private final By orderButton;
+    private final String orderButton;
     private final String name;
     private final String family;
     private final String address;
@@ -23,7 +23,7 @@ public class OrderTest {
     private final boolean colorGrey;
     private final String comment;
 
-    public OrderTest(By orderButton, String name, String family, String address, int metroIndex, String phone, String deliveryDate, int rentDuration, boolean colorBlack, boolean colorGrey, String comment){
+    public OrderTest(String orderButton, String name, String family, String address, int metroIndex, String phone, String deliveryDate, int rentDuration, boolean colorBlack, boolean colorGrey, String comment){
         this.orderButton = orderButton;
         this.name = name;
         this.family = family;
@@ -47,8 +47,8 @@ public class OrderTest {
     @Parameterized.Parameters // добавили аннотацию
     public static Object[][] getOrderParameters() {
         return new Object[][] {
-                { OrderPage.topOrderButton,"Иван", "Иванов", "Москва", 1, "+79998765432", "toDay", 2, true, false, "random"},
-                { OrderPage.bottomOrderButton,"Анастасия", "Воробей", "Питер, Смоленская ул. дом 10", 5, "89988765432", "toDay", 1, true, false, ""},
+                { "top","Иван", "Иванов", "Москва", 1, "+79998765432", "toDay", 2, true, false, "random"},
+                { "bottom","Анастасия", "Воробей", "Питер, Смоленская ул. дом 10", 5, "89988765432", "toDay", 1, true, false, ""},
         };
     }
     @Test
