@@ -5,7 +5,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import praktikum.pageObject.MainPage;
+import praktikum.page.objects.MainPage;
 
 @RunWith(Parameterized.class)
 public class FaqTest {

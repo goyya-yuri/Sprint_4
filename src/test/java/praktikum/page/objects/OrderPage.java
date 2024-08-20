@@ -1,4 +1,4 @@
-package praktikum.pageObject;
+package praktikum.page.objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import praktikum.Config;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class OrderPage {
     private final WebDriver driver;
@@ -16,8 +16,8 @@ public class OrderPage {
     public OrderPage(WebDriver driver){
         this.driver = driver;
     }
-    public static By topOrderButton = By.xpath("//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
-    public static By bottomOrderButton = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    public static final By topOrderButton = By.xpath("//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
+    public static final By bottomOrderButton = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     By firstNameInput = By.xpath("//input[@placeholder='* Имя']");
     By lastNameInput = By.xpath("//input[@placeholder='* Фамилия']");
@@ -122,7 +122,7 @@ public class OrderPage {
     }
 
     public OrderPage checkOrderAccepted() {
-        assertEquals("Заказ успешно оформлен",true, !(" ".equals(driver.findElement(orderInfo).getText())));
+        assertTrue("Заказ успешно оформлен", !(" ".equals(driver.findElement(orderInfo).getText())));
         return this;
     }
 }
